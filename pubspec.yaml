@@ -19,7 +19,7 @@ dependencies:
 
   # Images & Files
   image_picker: ^1.1.2
-  file_picker: ^8.1.2
+  file_picker: ^8.0.7
 
   # Charts
   fl_chart: ^0.69.0
@@ -37,7 +37,7 @@ dependencies:
   archive: ^3.6.1
 
   # Share
-  share_plus: ^9.0.0
+  share_plus: ^10.1.4
 
   # UUID
   uuid: ^4.4.2
