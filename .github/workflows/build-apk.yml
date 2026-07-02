@@ -26,18 +26,23 @@ jobs:
           channel: 'stable'
           cache: true
 
-      - name: Flutter version
-        run: flutter --version
+      - name: Create fresh Flutter project
+        run: |
+          flutter create --org com.geely.atlas --project-name car_history tmp_project
+          cp -r lib tmp_project/
+          cp pubspec.yaml tmp_project/pubspec.yaml
 
       - name: Get dependencies
+        working-directory: tmp_project
         run: flutter pub get
 
       - name: Build APK
-        run: flutter build apk --release --no-shrink
+        working-directory: tmp_project
+        run: flutter build apk --release
 
       - name: Upload APK
         uses: actions/upload-artifact@v4
         with:
           name: atlas-apk
-          path: build/app/outputs/flutter-apk/app-release.apk
+          path: tmp_project/build/app/outputs/flutter-apk/app-release.apk
           retention-days: 30
